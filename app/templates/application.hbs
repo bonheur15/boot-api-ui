@@ -1,8 +1,208 @@
-{{page-title "EmberQuickstart."}}
+{{page-title "BootApi Documentation"}}
+
+<main class="container">
+  <header class="header">
+    <h1>BootApi</h1>
+    <p>A lightweight, file-based API framework for Bun and Fastify.</p>
+  </header>
+
+  <section id="features">
+    <h2>Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>📁 Folder-based Routing</h3>
+        <p>Like Next.js, create routes by creating folders.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚙️ Middleware Support</h3>
+        <p>Add middleware at any folder level.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔁 Per-route Caching</h3>
+        <p>Cache responses for specific routes with an optional duration.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔌 Fastify Under the Hood</h3>
+        <p>Leverages the high-performance Fastify framework.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🔧 Simple CLI</h3>
+        <p>Scaffold a new project with a single command.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚡ Bun-first</h3>
+        <p>Designed for Bun, but also works with Node.js.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="installation">
+    <h2>Installation</h2>
+    <pre><code>bun add boot-api</code></pre>
+  </section>
+
+  <section id="usage">
+    <h2>Usage</h2>
+    <h3>1. Initialize a new project</h3>
+    <pre><code>bunx boot-api</code></pre>
+    <p>You’ll be prompted to:</p>
+    <ul>
+      <li>Enter a project name or choose the current directory</li>
+      <li>It will generate the project structure for you</li>
+    </ul>
+    <h3>2. Start the server</h3>
+    <pre><code>bun run boot-api.config.ts</code></pre>
+  </section>
+
+  <section id="project-structure">
+    <h2>Project Structure</h2>
+    <p class="hint">💡 Click on the folders to expand or collapse them.</p>
+    <div class="project-structure">
+      <ul>
+        <li>
+          <details open>
+            <summary>my-project/</summary>
+            <ul>
+              <li>
+                <span>boot-api.config.ts</span>
+                <span class="comment"># Your entry file</span>
+              </li>
+              <li>
+                <details>
+                  <summary>api/</summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary>demo/</summary>
+                        <ul>
+                          <li>
+                            <span>index.ts</span>
+                            <span class="comment"># Route: /api/demo</span>
+                          </li>
+                        </ul>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+              </li>
+              <li><span>tsconfig.json</span></li>
+              <li><span>package.json</span></li>
+              <li><span>.gitignore</span></li>
+            </ul>
+          </details>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="routing">
+    <h2>Routing</h2>
+    <p>Each folder under <code>api/</code> becomes a route.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Path</th>
+          <th>File</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>/api</code></td>
+          <td><code>api/index.ts</code></td>
+        </tr>
+        <tr>
+          <td><code>/api/demo</code></td>
+          <td><code>api/demo/index.ts</code></td>
+        </tr>
+        <tr>
+          <td><code>/api/user/:id</code></td>
+          <td><code>api/user/[id]/index.ts</code></td>
+        </tr>
+        <tr>
+          <td><code>/api/blog/:slug/comments</code></td>
+          <td><code>api/blog/[slug]/comments/index.ts</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="middleware">
+    <h2>Middleware</h2>
+    <p>You can create a <code>middleware.ts</code> in any folder inside <code>api/</code>:</p>
+    <pre><code>// api/middleware.ts (applies to all routes)
+export default async function (req, res) {
+  console.log("[ROOT]", req.method, req.url);
+}
+
+// api/user/middleware.ts (only applies to /api/user/**)
+export default async function (req, res) {
+  console.log("[USER]", req.url);
+}
+</code></pre>
+    <p>Middleware is automatically chained by folder depth.</p>
+  </section>
+
+  <section id="caching">
+    <h2>Caching</h2>
+    <p>BootApi supports per-route caching via an optional <code>config</code> export:</p>
+    <pre><code>// api/quote/index.ts
+export const config = {
+  cache: {
+    enabled: true,
+    maxAge: 10000 // in ms (10 seconds)
+  }
+};
+
+export default async function handler(req, res) {
+  return { quote: `Cached at ${Date.now()}` };
+}
+</code></pre>
+    <p>If <code>enabled</code> is <code>true</code>, the route’s response will be cached in memory.</p>
+  </section>
+
+  <section id="cli-scaffolding">
+    <h2>CLI Scaffolding</h2>
+    <p>After running <code>bunx boot-api</code>, the CLI will create:</p>
+    <ul>
+      <li><code>boot-api.config.ts</code> – server entry</li>
+      <li><code>api/demo/index.ts</code> – test route</li>
+      <li><code>tsconfig.json</code>, <code>.gitignore</code>, <code>package.json</code></li>
+    </ul>
+  </section>
+
+  <section id="example-route">
+    <h2>Example Route</h2>
+    <pre><code>// api/hello/index.ts
+export default async function handler(req, res) {
+  return { hello: "BootApi" };
+}
+</code></pre>
+  </section>
+
+  <section id="under-the-hood">
+    <h2>Under the Hood</h2>
+    <ul>
+      <li>Framework: <a href="https://fastify.dev/">Fastify</a></li>
+      <li>Runtime: <a href="https://bun.sh">Bun</a></li>
+      <li>Language: TypeScript-first</li>
+      <li>Uses dynamic <code>import()</code> to load all routes and middleware recursively</li>
+    </ul>
+  </section>
+
+  <section id="future-features">
+    <h2>Future Features</h2>
+    <ul class="bulleted-list">
+      <li>Route-level error handling</li>
+      <li>Redis/file caching support</li>
+      <li>Auto-generated route docs</li>
+      <li>Type-safe <code>req.params</code> and <code>req.query</code></li>
+    </ul>
+  </section>
+
+  <section id="contributing">
+    <h2>Contributing</h2>
+    <p>PRs welcome! Feel free to open issues or suggest features.</p>
+  </section>
+</main>
 
 {{outlet}}
-
-{{! The following component displays Ember's default welcome message. }}
-<WelcomePage />
-
-{{! Feel free to remove this! }}
