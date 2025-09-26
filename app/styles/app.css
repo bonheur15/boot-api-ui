@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 :root {
   --background-color: #1a1a1a;
@@ -11,7 +11,7 @@
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
@@ -43,16 +43,15 @@ body {
 }
 
 @keyframes slideInDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
-
 
 .header h1 {
   font-size: 3rem;
@@ -66,7 +65,9 @@ section {
   margin-bottom: 2rem;
   border-radius: var(--border-radius);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 section:hover {
@@ -100,7 +101,7 @@ pre {
 }
 
 code {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   background-color: #2a2a2a;
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
@@ -112,7 +113,8 @@ table {
   margin-top: 1rem;
 }
 
-th, td {
+th,
+td {
   padding: 0.75rem;
   text-align: left;
   border-bottom: 1px solid #444;
@@ -138,7 +140,7 @@ a:hover {
 }
 
 .project-structure ul::before {
-  content: '';
+  content: "";
   position: absolute;
   left: 10px;
   top: 0;
@@ -153,7 +155,7 @@ a:hover {
 }
 
 .project-structure li::before {
-  content: '';
+  content: "";
   position: absolute;
   left: -10px;
   top: 10px;
@@ -168,12 +170,12 @@ a:hover {
 }
 
 .project-structure details > summary::before {
-  content: '📁';
+  content: "📁";
   margin-right: 5px;
 }
 
 .project-structure details[open] > summary::before {
-  content: '📂';
+  content: "📂";
 }
 
 .project-structure span {
@@ -203,7 +205,9 @@ a:hover {
   padding: 1.5rem;
   border-radius: var(--border-radius);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .feature-card:hover {
@@ -220,4 +224,140 @@ a:hover {
 .bulleted-list {
   list-style: disc;
   padding-left: 40px;
+}
+
+.gear-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#gear {
+  transition: transform 0.5s ease;
+}
+
+#gear:hover {
+  transform: rotate(90deg);
+}
+
+#water-animation {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: var(--primary-color);
+  transition: height 5s ease-in-out;
+  z-index: -1;
+  overflow: hidden;
+}
+
+#water-animation.fill {
+  height: 100%;
+}
+.water-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  /*margin-top: auto;*/
+}
+
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+}
+
+.wave1 {
+  animation: wave-animation 8s ease-in-out infinite;
+  opacity: 0.8;
+}
+
+.wave2 {
+  animation: wave-animation2 6s ease-in-out infinite reverse;
+  opacity: 0.6;
+}
+
+.wave3 {
+  animation: wave-animation3 10s ease-in-out infinite;
+  opacity: 0.4;
+}
+
+@keyframes wave-animation {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes wave-animation2 {
+  0%,
+  100% {
+    transform: translateX(-25%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes wave-animation3 {
+  0%,
+  100% {
+    transform: translateX(-12.5%);
+  }
+  50% {
+    transform: translateX(-37.5%);
+  }
+}
+
+/* Additional floating elements */
+.bubble {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: float 4s ease-in-out infinite;
+}
+
+.bubble1 {
+  width: 20px;
+  height: 20px;
+  left: 10%;
+  bottom: 50px;
+  animation-delay: 0s;
+}
+
+.bubble2 {
+  width: 15px;
+  height: 15px;
+  left: 70%;
+  bottom: 80px;
+  animation-delay: 2s;
+}
+
+.bubble3 {
+  width: 25px;
+  height: 25px;
+  left: 40%;
+  bottom: 30px;
+  animation-delay: 1s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-30px) scale(1.1);
+    opacity: 1;
+  }
 }
