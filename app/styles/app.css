@@ -361,3 +361,8 @@ a:hover {
     opacity: 1;
   }
 }
+.title-custom {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white !important;
+}
