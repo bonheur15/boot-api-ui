@@ -26,6 +26,9 @@
     "test": "concurrently \"npm:lint\" \"npm:test:*\" --names \"lint,test:\" --prefixColors auto",
     "test:ember": "ember test"
   },
+  "dependencies": {
+    "@glimmer/component": "^1.1.2"
+  },
   "devDependencies": {
     "@babel/core": "^7.28.4",
     "@babel/eslint-parser": "^7.28.4",
@@ -34,7 +37,6 @@
     "@ember/test-helpers": "^5.2.2",
     "@embroider/macros": "^1.18.1",
     "@eslint/js": "^9.35.0",
-    "@glimmer/component": "^2.0.0",
     "@glimmer/tracking": "^1.1.2",
     "broccoli-asset-rev": "^3.0.0",
     "concurrently": "^9.2.1",
