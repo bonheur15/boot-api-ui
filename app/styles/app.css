@@ -366,3 +366,26 @@ a:hover {
   font-weight: bold;
   color: white !important;
 }
+
+.gear-hint {
+  position: absolute;
+  top: 50%;
+  right: 120%;
+  transform: translateY(-50%);
+  font-size: 0.8rem;
+  color: #888;
+  animation: fadeOut 5s forwards;
+  white-space: nowrap;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
