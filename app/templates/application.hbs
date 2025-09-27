@@ -252,7 +252,11 @@
 
   <section id="middleware">
     <h2>Middleware</h2>
-    <p>You can create a <code>middleware.ts</code> in any folder inside <code>api/</code>:</p>
+    <p>You can create a
+      <code>middleware.ts</code>
+      in any folder inside
+      <code>api/</code>:</p>
+    {{! prettier-ignore }}
     <pre><code>// api/middleware.ts (applies to all routes)
 export default async function (req, res) {
   console.log("[ROOT]", req.method, req.url);
@@ -268,7 +272,10 @@ export default async function (req, res) {
 
   <section id="caching">
     <h2>Caching</h2>
-    <p>BootApi supports per-route caching via an optional <code>config</code> export:</p>
+    <p>BootApi supports per-route caching via an optional
+      <code>config</code>
+      export:</p>
+    {{! prettier-ignore }}
     <pre><code>// api/quote/index.ts
 export const config = {
   cache: {
@@ -281,7 +288,10 @@ export default async function handler(req, res) {
   return { quote: `Cached at ${Date.now()}` };
 }
 </code></pre>
-    <p>If <code>enabled</code> is <code>true</code>, the route’s response will be cached in memory.</p>
+    <p>If
+      <code>enabled</code>
+      is
+      <code>true</code>, the route’s response will be cached in memory.</p>
   </section>
 
   <section id="cli-scaffolding">
@@ -290,12 +300,15 @@ export default async function handler(req, res) {
     <ul>
       <li><code>boot-api.config.ts</code> – server entry</li>
       <li><code>api/demo/index.ts</code> – test route</li>
-      <li><code>tsconfig.json</code>, <code>.gitignore</code>, <code>package.json</code></li>
+      <li><code>tsconfig.json</code>,
+        <code>.gitignore</code>,
+        <code>package.json</code></li>
     </ul>
   </section>
 
   <section id="example-route">
     <h2>Example Route</h2>
+    {{! prettier-ignore }}
     <pre><code>// api/hello/index.ts
 export default async function handler(req, res) {
   return { hello: "BootApi" };
