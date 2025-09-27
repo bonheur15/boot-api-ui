@@ -1,7 +1,26 @@
-# ember-quickstart
+# Ember Quickstart
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This is a quickstart repository for building an Ember.js application. It is built with the Octane edition of Ember.js, which is the latest and greatest version of the framework.
+
+## Project Structure
+
+The project is structured as a standard Ember.js application. The `app` directory contains the following subdirectories:
+
+- `components`: Contains the reusable components of the application.
+- `controllers`: Contains the controllers for the application's routes.
+- `helpers`: Contains the helpers for the application's templates.
+- `instance-initializers`: Contains the instance initializers for the application.
+- `models`: Contains the models for the application's data.
+- `routes`: Contains the routes for the application.
+- `styles`: Contains the stylesheets for the application.
+- `templates`: Contains the templates for the application's routes and components.
+
+## Changes
+
+This project has been customized with the following changes:
+
+- An instance initializer has been added to animate the gear icon on the welcome page.
+- A GitHub logo has been added to the `public` directory.
 
 ## Prerequisites
 
