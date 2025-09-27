@@ -166,18 +166,26 @@ a:hover {
   background: #555;
 }
 
-.project-structure summary {
+.project-structure .folder > label {
   cursor: pointer;
   display: inline-block;
 }
 
-.project-structure details > summary::before {
+.project-structure .folder > label::before {
   content: "📁";
   margin-right: 5px;
 }
 
-.project-structure details[open] > summary::before {
+.project-structure .folder.open > label::before {
   content: "📂";
+}
+
+.project-structure .folder > .folder-content {
+  display: none;
+}
+
+.project-structure .folder.open > .folder-content {
+  display: block;
 }
 
 .project-structure span {

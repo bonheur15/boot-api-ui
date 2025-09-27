@@ -168,40 +168,54 @@
     <h2>Project Structure</h2>
     <p class="hint">💡 Click on the folders to expand or collapse them.</p>
     <div class="project-structure">
-      <ul>
-        <li>
-          <details open>
-            <summary>my-project/</summary>
-            <ul>
-              <li>
-                <span>boot-api.config.ts</span>
-                <span class="comment"># Your entry file</span>
-              </li>
-              <li>
-                <details>
-                  <summary>api/</summary>
+      <div class="folder open">
+        {{! template-lint-disable no-potential-path-strings }}
+        <label
+          onclick="this.parentElement.classList.toggle('open')"
+        >my-project/</label>
+        {{! template-lint-enable no-potential-path-strings }}
+        <div class="folder-content">
+          <ul>
+            <li>
+              <span>boot-api.config.ts</span>
+              <span class="comment"># Your entry file</span>
+            </li>
+            <li>
+              <div class="folder">
+                {{! template-lint-disable no-potential-path-strings }}
+                <label
+                  onclick="this.parentElement.classList.toggle('open')"
+                >api/</label>
+                {{! template-lint-enable no-potential-path-strings }}
+                <div class="folder-content">
                   <ul>
                     <li>
-                      <details>
-                        <summary>demo/</summary>
-                        <ul>
-                          <li>
-                            <span>index.ts</span>
-                            <span class="comment"># Route: /api/demo</span>
-                          </li>
-                        </ul>
-                      </details>
+                      <div class="folder">
+                        {{! template-lint-disable no-potential-path-strings }}
+                        <label
+                          onclick="this.parentElement.classList.toggle('open')"
+                        >demo/</label>
+                        {{! template-lint-enable no-potential-path-strings }}
+                        <div class="folder-content">
+                          <ul>
+                            <li>
+                              <span>index.ts</span>
+                              <span class="comment"># Route: /api/demo</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
                     </li>
                   </ul>
-                </details>
-              </li>
-              <li><span>tsconfig.json</span></li>
-              <li><span>package.json</span></li>
-              <li><span>.gitignore</span></li>
-            </ul>
-          </details>
-        </li>
-      </ul>
+                </div>
+              </div>
+            </li>
+            <li><span>tsconfig.json</span></li>
+            <li><span>package.json</span></li>
+            <li><span>.gitignore</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -295,7 +309,9 @@ export default async function handler(req, res) {
       <li>Framework: <a href="https://fastify.dev/">Fastify</a></li>
       <li>Runtime: <a href="https://bun.sh">Bun</a></li>
       <li>Language: TypeScript-first</li>
-      <li>Uses dynamic <code>import()</code> to load all routes and middleware recursively</li>
+      <li>Uses dynamic
+        <code>import()</code>
+        to load all routes and middleware recursively</li>
     </ul>
   </section>
 
