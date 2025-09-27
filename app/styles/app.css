@@ -408,7 +408,13 @@ footer {
   border-top: 1px solid #444;
 }
 
-a footer {
+#github-link {
+  margin: 0 1rem;
+  color: white !important;
+  text-decoration: none;
+}
+
+#npm-link {
   margin: 0 1rem;
   color: white !important;
   text-decoration: none;
