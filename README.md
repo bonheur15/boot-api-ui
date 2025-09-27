@@ -15,13 +15,6 @@ The project is structured as a standard Ember.js application. The `app` director
 - `styles`: Contains the stylesheets for the application.
 - `templates`: Contains the templates for the application's routes and components.
 
-## Changes
-
-This project has been customized with the following changes:
-
-- An instance initializer has been added to animate the gear icon on the welcome page.
-- A GitHub logo has been added to the `public` directory.
-
 ## Prerequisites
 
 You will need the following things properly installed on your computer.

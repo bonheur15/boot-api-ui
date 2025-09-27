@@ -4,12 +4,12 @@
 
 ## 🚀 Features
 
-* 📁 **Folder-based Routing** like Next.js
-* ⚙️ **Middleware Support** at any folder level
-* 🔁 **Per-route Caching** with optional duration
-* 🔌 **Fastify under the hood** for performance
-* 🔧 **Simple CLI** to scaffold a project (`bunx boot-api`)
-* ⚡ **Bun-first** but works with Node.js too
+- 📁 **Folder-based Routing** like Next.js
+- ⚙️ **Middleware Support** at any folder level
+- 🔁 **Per-route Caching** with optional duration
+- 🔌 **Fastify under the hood** for performance
+- 🔧 **Simple CLI** to scaffold a project (`bunx boot-api`)
+- ⚡ **Bun-first** but works with Node.js too
 
 ---
 
@@ -31,8 +31,8 @@ bunx boot-api
 
 You’ll be prompted to:
 
-* Enter a project name or choose the current directory
-* It will generate the project structure for you
+- Enter a project name or choose the current directory
+- It will generate the project structure for you
 
 ### 2. Start the server
 
@@ -99,8 +99,8 @@ BootApi supports per-route caching via an optional `config` export:
 export const config = {
   cache: {
     enabled: true,
-    maxAge: 10000 // in ms (10 seconds)
-  }
+    maxAge: 10000, // in ms (10 seconds)
+  },
 };
 
 export default async function handler(req, res) {
@@ -116,9 +116,9 @@ If `enabled` is `true`, the route’s response will be cached in memory.
 
 After running `bunx boot-api`, the CLI will create:
 
-* `boot-api.config.ts` – server entry
-* `api/demo/index.ts` – test route
-* `tsconfig.json`, `.gitignore`, `package.json`
+- `boot-api.config.ts` – server entry
+- `api/demo/index.ts` – test route
+- `tsconfig.json`, `.gitignore`, `package.json`
 
 ---
 
@@ -135,19 +135,19 @@ export default async function handler(req, res) {
 
 ## 🔌 Under the Hood
 
-* Framework: [Fastify](https://fastify.dev/)
-* Runtime: [Bun](https://bun.sh)
-* Language: TypeScript-first
-* Uses dynamic `import()` to load all routes and middleware recursively
+- Framework: [Fastify](https://fastify.dev/)
+- Runtime: [Bun](https://bun.sh)
+- Language: TypeScript-first
+- Uses dynamic `import()` to load all routes and middleware recursively
 
 ---
 
 ## 🧰 Future Features
 
-* Route-level error handling
-* Redis/file caching support
-* Auto-generated route docs
-* Type-safe `req.params` and `req.query`
+- Route-level error handling
+- Redis/file caching support
+- Auto-generated route docs
+- Type-safe `req.params` and `req.query`
 
 ---
 
